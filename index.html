@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Posting Automation</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      background-color: #f9f9f7;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 60px;
+      border-bottom: 1px solid #e5e5e5;
+      background: #f9f9f7;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: #1a1a1a;
+    }
+
+    .nav-contact {
+      font-size: 14px;
+      color: #555;
+      text-decoration: none;
+    }
+
+    .nav-contact:hover {
+      color: #1a1a1a;
+    }
+
+    /* HERO */
+    .hero {
+      max-width: 720px;
+      margin: 100px auto 80px;
+      padding: 0 40px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      color: #1a1a1a;
+      margin-bottom: 28px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #555;
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* PLATFORMS */
+    .platforms {
+      max-width: 720px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .platform-tag {
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border: 1px solid #ddd;
+      border-radius: 100px;
+      color: #444;
+      background: #fff;
+    }
+
+    /* DIVIDER */
+    .divider {
+      max-width: 720px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+      border: none;
+      border-top: 1px solid #e5e5e5;
+    }
+
+    /* HOW IT WORKS */
+    .section {
+      max-width: 720px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 40px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .step-number {
+      font-size: 13px;
+      font-weight: 600;
+      color: #bbb;
+      padding-top: 3px;
+    }
+
+    .step-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      letter-spacing: -0.3px;
+    }
+
+    .step-content p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* WHAT YOU GET */
+    .features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 0;
+    }
+
+    .feature {
+      padding: 28px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 12px;
+    }
+
+    .feature h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      font-size: 14px;
+      color: #777;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta {
+      max-width: 720px;
+      margin: 0 auto 120px;
+      padding: 60px 40px;
+      background: #1a1a1a;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+
+    .cta p {
+      font-size: 16px;
+      color: #999;
+      margin-bottom: 32px;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 32px;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .cta a:hover {
+      opacity: 0.85;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid #e5e5e5;
+      padding: 32px 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      .hero, .platforms, .section { padding: 0 24px; }
+      .hero h1 { font-size: 32px; }
+      .features { grid-template-columns: 1fr; }
+      .cta { margin: 0 24px 80px; padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span class="nav-logo">Social Posting</span>
+    <a href="mailto:hello@example.com" class="nav-contact">Get in touch</a>
+  </nav>
+
+  <section class="hero">
+    <p class="hero-label">Automated Social Media</p>
+    <h1>Your listings, live on every platform.</h1>
+    <p>We take your boat listings and turn them into polished, platform-specific posts across Instagram, Facebook, LinkedIn, and X — automatically, on your clients' accounts.</p>
+  </section>
+
+  <div class="platforms">
+    <span class="platform-tag">Instagram</span>
+    <span class="platform-tag">Facebook</span>
+    <span class="platform-tag">LinkedIn</span>
+    <span class="platform-tag">X (Twitter)</span>
+  </div>
+
+  <hr class="divider" />
+
+  <section class="section">
+    <p class="section-label">How it works</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-number">01</span>
+        <div class="step-content">
+          <h3>Content Generation</h3>
+          <p>When a listing is new, changes price, or needs a refresh, our system picks it up automatically. AI builds platform-specific captions and sources the right images — no manual work required.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number">02</span>
+        <div class="step-content">
+          <h3>Publishing</h3>
+          <p>Posts are queued, claimed, and published directly to your clients' social accounts. Every post is tracked from creation to live — including timestamp, platform, and status.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-number">03</span>
+        <div class="step-content">
+          <h3>End-to-End Tracking</h3>
+          <p>Every listing, every platform, every post has a record. You always know what's been published, what's pending, and what's next.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <p class="section-label">What you get</p>
+    <div class="features">
+      <div class="feature">
+        <h4>Platform-native copy</h4>
+        <p>Each post is written specifically for its platform — not a one-size-fits-all caption.</p>
+      </div>
+      <div class="feature">
+        <h4>Fully automated</h4>
+        <p>From listing detection to publishing, the entire pipeline runs without manual input.</p>
+      </div>
+      <div class="feature">
+        <h4>Multi-client ready</h4>
+        <p>Each brokerage gets their own scoped workflow, accounts, and post history.</p>
+      </div>
+      <div class="feature">
+        <h4>Always up to date</h4>
+        <p>Price changes and stale listings trigger fresh posts automatically — keeping content current.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <h2>Ready to automate your social presence?</h2>
+    <p>Let's talk about getting your listings in front of more buyers.</p>
+    <a href="mailto:hello@example.com">Get in touch</a>
+  </div>
+
+  <footer>
+    &copy; 2026 Social Posting. All rights reserved.
+  </footer>
+
+</body>
+</html>
